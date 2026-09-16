@@ -7,26 +7,26 @@
 ---
 
 ## Phase 1 — Project Foundation + Navigation
-- [ ] `flutter create` project scaffold, Android-only config, minSdk/targetSdk per `DESIGN.md`
-- [ ] Add `provider`, `shared_preferences` to `pubspec.yaml`
-- [ ] Add dev deps: `flutter_lints`, `mocktail`; configure `analysis_options.yaml`
-- [ ] `core/theme/app_colors.dart` — transcribe full token table (`DESIGN.md` §1.1, light + dark)
-- [ ] `core/theme/app_typography.dart` — transcribe type scale (`DESIGN.md` §1.2)
-- [ ] `core/theme/app_theme.dart` — assemble M3 `ThemeData` (light + dark)
-- [ ] `core/constants/spacing.dart` — 8dp grid constants
-- [ ] `core/errors/app_exceptions.dart` — all exception classes from `ARCHITECTURE.md` §7
-- [ ] `core/errors/error_translator.dart` — map each exception to Screen 14 copy
-- [ ] `core/routing/app_router.dart` — route table + placeholder screens for 6 tools, Recent Files, Settings
-- [ ] `services/*` — write all 6 abstract service interfaces (no implementations yet)
-- [ ] `shared/widgets/error_state_view.dart` (Screen 14 error state)
-- [ ] `shared/widgets/empty_state_view.dart` (Screen 14 empty state)
-- [ ] Root shell: 3-tab bottom nav with `IndexedStack`
-- [ ] `app.dart`: `MaterialApp` + root `MultiProvider` (stub `SettingsController`, `RecentFilesController`)
-- [ ] `features/home/`: static tool grid (Screen 1), tapping a card navigates to placeholder route
-- [ ] Verify `AndroidManifest.xml` has no `INTERNET` permission
-- [ ] Smoke test proving `flutter test` harness runs
-- [ ] `flutter analyze` clean
-- [ ] Update `AI_HANDOFF.md` for Phase 2 handoff
+- [x] `flutter create` project scaffold, Android-only config, minSdk/targetSdk per `DESIGN.md`
+- [x] Add `provider`, `shared_preferences` to `pubspec.yaml`
+- [x] Add dev deps: `flutter_lints`, `mocktail`; configure `analysis_options.yaml`
+- [x] `core/theme/app_colors.dart` — transcribe full token table (`DESIGN.md` §1.1, light + dark)
+- [x] `core/theme/app_typography.dart` — transcribe type scale (`DESIGN.md` §1.2)
+- [x] `core/theme/app_theme.dart` — assemble M3 `ThemeData` (light + dark)
+- [x] `core/constants/spacing.dart` — 8dp grid constants
+- [x] `core/errors/app_exceptions.dart` — all exception classes from `ARCHITECTURE.md` §7
+- [x] `core/errors/error_translator.dart` — map each exception to Screen 14 copy
+- [x] `core/routing/app_router.dart` — route table + placeholder screens for 6 tools, Recent Files, Settings
+- [x] `services/*` — write all 6 abstract service interfaces (no implementations yet)
+- [x] `shared/widgets/error_state_view.dart` (Screen 14 error state)
+- [x] `shared/widgets/empty_state_view.dart` (Screen 14 empty state)
+- [x] Root shell: 3-tab bottom nav with `IndexedStack`
+- [x] `app.dart`: `MaterialApp` + root `MultiProvider` (stub `SettingsController`, `RecentFilesController`)
+- [x] `features/home/`: static tool grid (Screen 1), tapping a card navigates to placeholder route
+- [x] Verify `AndroidManifest.xml` has no `INTERNET` permission
+- [x] Smoke test proving `flutter test` harness runs
+- [x] `flutter analyze` clean
+- [x] Update `AI_HANDOFF.md` for Phase 2 handoff
 
 ## Phase 2 — Images → PDF
 - [ ] Add `image_picker`, `flutter_image_compress`, `file_picker`, `path_provider`, `permission_handler`, `share_plus`, `open_filex`, `pdf`
