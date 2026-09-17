@@ -1,0 +1,54 @@
+name: Build APK
+
+# Runs on every push/PR to main, and can also be triggered manually
+# from the Actions tab (needed since Jules pushes commits directly).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    name: Build release APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java (required by the Android/Gradle build)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run analyzer
+        run: flutter analyze
+        continue-on-error: true # don't block the APK build on lint warnings
+
+      - name: Run tests
+        run: flutter test
+        continue-on-error: true # surface failures without blocking the artifact
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      # Flutter's default output path for a release APK
+      - name: Upload APK as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-toolkit-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 14
+          
